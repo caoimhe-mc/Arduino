@@ -1,0 +1,22 @@
+int ledPin1 = 6;
+int ledPin2 = 9;
+int ledPin3 = 10;
+int ledPin4 = 11;
+
+int ledPins[] = {6, 9, 10, 11};
+
+void setup() 
+{
+  for( int i = 0; i < 4; i ++) {
+    pinMode(ledPins[i], OUTPUT);
+  }
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  analogWrite(ledPin1, map(2,0,100,0,255));
+  analogWrite(ledPin2, map(10,0,100,0,255));
+  analogWrite(ledPin3, map(50,0,100,0,255));
+  analogWrite(ledPin4, map(100,0,100,0,255));
+}
