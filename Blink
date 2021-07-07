@@ -1,0 +1,35 @@
+const int ledCount = 10;
+int ledPins[] ={4, 5, 6, 7, 8, 9, 10, 11, 12, 13}; 
+
+
+// the setup function runs once when you press reset or power the board
+void setup() { 
+  // loop over the pin array and set them all to output:
+  for (int i = 0; i < ledCount; i++) {
+    pinMode(ledPins[i], OUTPUT); 
+    }
+   }
+
+
+// the loop function runs over and over again forever
+void loop() {
+  for(int i =0; i < ledCount; i ++)
+  {
+    barGraphDisplay(i);
+  }
+
+  for(int i = ledCount; i >0; i --) 
+  {
+    barGraphDisplay(i-1);
+  }
+}
+
+ void barGraphDisplay(int ledOn) {
+  for (int i = 0; i < ledCount; i++) {
+    if(i == ledOn)
+     digitalWrite(ledPins[i], HIGH);
+    else
+    digitalWrite(ledPins[i], LOW);
+  }
+  delay(100);
+ }
