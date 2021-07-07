@@ -1,0 +1,37 @@
+
+// an array of pin numbers to which LEDs are attached
+int ledPin = 9;
+int buttonPin = 12;
+boolean isLighting = false; // define a variable to save the state of LED
+
+void setup() {
+  // loop over the pin array and set them all to output:
+    pinMode(ledPin, OUTPUT);
+    pinMode(buttonPin, INPUT);
+}
+
+void loop() 
+{
+  // put your main code here, to run repeatedly:
+ if(digitalRead(buttonPin) == LOW) // if the button is pressed
+ {
+   delay(10); // skips the bounce
+   if(digitalRead(buttonPin) == LOW ) // confirms button is pressed
+   {
+     reverseLED(); // reverse LED
+     while(digitalRead(buttonPin) == LOW); //wait for release
+     delay(10); // skips the bounce
+   }
+ }
+ }
+
+void reverseLED(){
+  if(isLighting){
+    digitalWrite(ledPin, LOW);
+    isLighting = false;
+  }
+  else {
+    digitalWrite(ledPin,HIGH);
+    isLighting = true;
+  }
+}
